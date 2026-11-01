@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>중2 세계사 · 한눈에 보는 시간 막대</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Outfit:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hero">
+    <p class="brand">중2 세계사</p>
+    <h1>한눈에 보는 시간 막대</h1>
+    <p class="lead">첫 수업부터 마지막까지, 세계사의 흐름을 한 줄로 따라가 보세요.</p>
+    <div class="hero-actions">
+      <button type="button" class="btn primary" id="btnStart">막대 따라가기</button>
+      <button type="button" class="btn ghost" id="btnUnits">단원 보기</button>
+    </div>
+  </header>
+
+  <section class="controls" aria-label="타임라인 조작">
+    <div class="control-row">
+      <label class="sr-only" for="unitFilter">단원 필터</label>
+      <select id="unitFilter">
+        <option value="all">전체 단원</option>
+      </select>
+      <div class="zoom-group" role="group" aria-label="확대 축소">
+        <button type="button" id="zoomOut" aria-label="축소">−</button>
+        <span id="zoomLabel">100%</span>
+        <button type="button" id="zoomIn" aria-label="확대">+</button>
+      </div>
+      <button type="button" class="btn soft" id="btnToday">오늘로</button>
+    </div>
+    <div class="unit-chips" id="unitChips" aria-label="단원 바로가기"></div>
+  </section>
+
+  <section class="rail-wrap" id="timelineSection" aria-label="세계사 시간 막대">
+    <div class="rail-scroll" id="railScroll">
+      <div class="rail" id="rail">
+        <div class="era-track" id="eraTrack"></div>
+        <div class="tick-track" id="tickTrack"></div>
+        <div class="event-track" id="eventTrack"></div>
+        <div class="now-marker" id="nowMarker" aria-hidden="true">
+          <span>지금</span>
+        </div>
+      </div>
+    </div>
+    <div class="rail-hint">좌우로 드래그하거나 스크롤해 보세요</div>
+  </section>
+
+  <section class="detail" id="detail" aria-live="polite">
+    <div class="detail-inner" id="detailInner">
+      <p class="detail-empty">막대의 점을 누르면 그 시대의 이야기가 열립니다.</p>
+    </div>
+  </section>
+
+  <section class="units" id="unitsSection">
+    <h2>수업 단원 지도</h2>
+    <p class="section-lead">2022 개정 교육과정 역사①(세계사) 흐름입니다.</p>
+    <ol class="unit-list" id="unitList"></ol>
+  </section>
+
+  <footer class="footer">
+    <p>중학교 2학년 세계사 · 교실용 시간 막대</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
